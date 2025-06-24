@@ -1,17 +1,17 @@
-package SingleDesignPattern.implementation;
+package SingletonDesignPattern.implementation;
 
-public class DoubleCheckedSingleton {
-    private static volatile DoubleCheckedSingleton instance;
+public class DoubleCheckedLockingSingleton {
+    private static volatile DoubleCheckedLockingSingleton instance;
     
-    private DoubleCheckedSingleton() {
-        System.out.println("DoubleCheckedSingleton is initiated.");
+    private DoubleCheckedLockingSingleton() {
+        System.out.println("DoubleCheckedLockingSingleton is initiated.");
     }
     
-    public static DoubleCheckedSingleton getInstance() {
+    public static DoubleCheckedLockingSingleton getInstance() {
         if (instance == null) {
-            synchronized (DoubleCheckedSingleton.class) {
+            synchronized (DoubleCheckedLockingSingleton.class) {
                 if (instance == null) {
-                    instance = new DoubleCheckedSingleton();
+                    instance = new DoubleCheckedLockingSingleton();
                 }
             }
         }

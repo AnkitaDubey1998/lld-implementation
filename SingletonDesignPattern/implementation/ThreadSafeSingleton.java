@@ -1,4 +1,4 @@
-package SingleDesignPattern.implementation;
+package SingletonDesignPattern.implementation;
 
 public class ThreadSafeSingleton {
     private static ThreadSafeSingleton instance;

@@ -1,6 +1,6 @@
-package SingleDesignPattern;
+package SingletonDesignPattern;
 
-import SingleDesignPattern.implementation.LazySingleton;
+import SingletonDesignPattern.implementation.LazySingleton;
 
 public class Main {
     public static void main(String args[]) {

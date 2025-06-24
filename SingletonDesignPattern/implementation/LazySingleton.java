@@ -1,4 +1,4 @@
-package SingleDesignPattern.implementation;
+package SingletonDesignPattern.implementation;
 
 public class LazySingleton {
     private static LazySingleton instance;

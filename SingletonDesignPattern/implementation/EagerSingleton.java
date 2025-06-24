@@ -1,4 +1,4 @@
-package SingleDesignPattern.implementation;
+package SingletonDesignPattern.implementation;
 
 public class EagerSingleton {
     private static final EagerSingleton instance = new EagerSingleton();

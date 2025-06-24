@@ -1,4 +1,4 @@
-package SingleDesignPattern.implementation;
+package SingletonDesignPattern.implementation;
 
 public enum EnumSingleton {
     INSTANCE;
