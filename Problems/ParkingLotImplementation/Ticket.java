@@ -20,6 +20,26 @@ public class Ticket {
         this.entryTimestamp = new Date().getTime();
     }
 
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public ParkingSpot getParkingSpot() {
+        return parkingSpot;
+    }
+
+    public long getEntryTimestamp() {
+        return entryTimestamp;
+    }
+
+    public long getExitTimestamp() {
+        return exitTimestamp;
+    }
+
     public void setExitTimestamp(long exitTimestamp) {
         this.exitTimestamp = exitTimestamp;
     }
