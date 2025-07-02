@@ -1,4 +1,4 @@
-package Problems.ParkingLotImplementation.fee;
+package Problems.ParkingLotImplementation.feeStrategy;
 
 import Problems.ParkingLotImplementation.Ticket;
 import Problems.ParkingLotImplementation.Type;
