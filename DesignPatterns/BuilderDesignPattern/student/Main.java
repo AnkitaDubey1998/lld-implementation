@@ -2,12 +2,12 @@ package DesignPatterns.BuilderDesignPattern.student;
 
 public class Main {
     public static void main(String[] args) {
-        StudentDirector studentDirector = new StudentDirector();
-
-        Student engineeringStudent = studentDirector.createEngineeringStudent(new EngineeringStudentBuilder());
+        StudentDirector studentDirector1 = new StudentDirector(new EngineeringStudentBuilder());
+        Student engineeringStudent = studentDirector1.createStudent();
         System.out.println(engineeringStudent.toString());
 
-        Student mbaStudent = studentDirector.createMBAStudent(new MBAStudentBuilder());
+        StudentDirector studentDirector2 = new StudentDirector(new MBAStudentBuilder());
+        Student mbaStudent = studentDirector2.createStudent();
         System.out.println(mbaStudent.toString());
     }
 
