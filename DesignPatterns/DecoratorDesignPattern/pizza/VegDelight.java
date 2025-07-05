@@ -1,4 +1,4 @@
-package DesignPatterns.DecoratorDesignPattern.Pizza;
+package DesignPatterns.DecoratorDesignPattern.pizza;
 
 public class VegDelight extends BasePizza {
 

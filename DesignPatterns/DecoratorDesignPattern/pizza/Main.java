@@ -1,7 +1,7 @@
-package DesignPatterns.DecoratorDesignPattern.Pizza;
+package DesignPatterns.DecoratorDesignPattern.pizza;
 
-import DesignPatterns.DecoratorDesignPattern.Pizza.decorator.ExtraCheese;
-import DesignPatterns.DecoratorDesignPattern.Pizza.decorator.Mushroom;
+import DesignPatterns.DecoratorDesignPattern.pizza.decorator.ExtraCheese;
+import DesignPatterns.DecoratorDesignPattern.pizza.decorator.Mushroom;
 
 public class Main {
     public static void main(String[] args) {

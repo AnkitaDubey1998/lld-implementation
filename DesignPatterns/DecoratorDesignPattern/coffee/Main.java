@@ -1,7 +1,7 @@
-package DesignPatterns.DecoratorDesignPattern.Coffee;
+package DesignPatterns.DecoratorDesignPattern.coffee;
 
-import DesignPatterns.DecoratorDesignPattern.Coffee.decorator.MilkDecorator;
-import DesignPatterns.DecoratorDesignPattern.Coffee.decorator.SugarDecorator;
+import DesignPatterns.DecoratorDesignPattern.coffee.decorator.MilkDecorator;
+import DesignPatterns.DecoratorDesignPattern.coffee.decorator.SugarDecorator;
 
 public class Main {
     public static void main(String[] args) {

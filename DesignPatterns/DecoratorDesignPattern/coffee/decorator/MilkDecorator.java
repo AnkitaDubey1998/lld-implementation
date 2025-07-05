@@ -1,6 +1,6 @@
-package DesignPatterns.DecoratorDesignPattern.Coffee.decorator;
+package DesignPatterns.DecoratorDesignPattern.coffee.decorator;
 
-import DesignPatterns.DecoratorDesignPattern.Coffee.Coffee;
+import DesignPatterns.DecoratorDesignPattern.coffee.Coffee;
 
 public class MilkDecorator extends CoffeeDecorator {
     public MilkDecorator(Coffee decoratedCoffee) {
