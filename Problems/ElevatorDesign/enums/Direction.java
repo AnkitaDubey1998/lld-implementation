@@ -1,5 +1,5 @@
 package Problems.ElevatorDesign.enums;
 
 public enum Direction {
-    UP, DOWN;
+    UP, DOWN, NEUTRAL;
 }
