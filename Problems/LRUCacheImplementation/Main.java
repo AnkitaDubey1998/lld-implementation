@@ -8,12 +8,14 @@ public class Main {
         lruCache.put("a", 1);
         lruCache.put("b", 2);
         lruCache.put("c", 3);
+        lruCache.displayCacheElements();
 
-        System.out.println(lruCache.get("a")); // 1
+        System.out.println("\n" + lruCache.get("a")); // 1
 
         lruCache.put("d", 4);
+        lruCache.displayCacheElements();
 
-        System.out.println(lruCache.get("b")); // null
+        System.out.println("\n" + lruCache.get("b")); // null
     }
 
 }

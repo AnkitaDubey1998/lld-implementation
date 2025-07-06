@@ -34,4 +34,12 @@ public class DoubleLinkedList<K, V> {
         remove(last);
         return last;
     }
+
+    public void displayElements() {
+        Node<K, V> node = head.next;
+        while(node != tail) {
+            System.out.println(node.key + " : " + node.value);
+            node = node.next;
+        }
+    }
 }

@@ -38,4 +38,9 @@ public class LRUCache<K, V> {
             }
         }
     }
+
+    public void displayCacheElements() {
+        System.out.println("\nCache elements :");
+        dll.displayElements();
+    }
 }
