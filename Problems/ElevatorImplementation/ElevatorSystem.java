@@ -1,8 +1,8 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.button.DirectionButton;
-import Problems.ElevatorDesign.enums.Direction;
-import Problems.ElevatorDesign.panel.ExternalPanel;
+import Problems.ElevatorImplementation.button.DirectionButton;
+import Problems.ElevatorImplementation.enums.Direction;
+import Problems.ElevatorImplementation.panel.ExternalPanel;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.enums.Direction;
+import Problems.ElevatorImplementation.enums.Direction;
 
 public class Display {
     int floor;

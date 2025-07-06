@@ -1,4 +1,4 @@
-package Problems.ElevatorDesign.button;
+package Problems.ElevatorImplementation.button;
 
 public class FloorButton implements Button{
     private int floorNumber;

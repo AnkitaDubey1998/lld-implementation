@@ -1,6 +1,6 @@
-package Problems.ElevatorDesign.button;
+package Problems.ElevatorImplementation.button;
 
-import Problems.ElevatorDesign.enums.DoorAction;
+import Problems.ElevatorImplementation.enums.DoorAction;
 
 public class DoorButton implements Button {
     private DoorAction doorAction;

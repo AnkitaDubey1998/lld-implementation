@@ -1,6 +1,6 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.enums.DoorAction;
+import Problems.ElevatorImplementation.enums.DoorAction;
 
 public class Door {
     private DoorAction doorAction;

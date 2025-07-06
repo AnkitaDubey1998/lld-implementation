@@ -1,7 +1,7 @@
-package Problems.ElevatorDesign.panel;
+package Problems.ElevatorImplementation.panel;
 
-import Problems.ElevatorDesign.button.DoorButton;
-import Problems.ElevatorDesign.button.FloorButton;
+import Problems.ElevatorImplementation.button.DoorButton;
+import Problems.ElevatorImplementation.button.FloorButton;
 
 import java.util.List;
 

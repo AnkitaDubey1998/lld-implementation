@@ -1,6 +1,6 @@
-package Problems.ElevatorDesign.panel;
+package Problems.ElevatorImplementation.panel;
 
-import Problems.ElevatorDesign.button.DirectionButton;
+import Problems.ElevatorImplementation.button.DirectionButton;
 
 import java.util.List;
 

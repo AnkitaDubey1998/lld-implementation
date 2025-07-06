@@ -1,13 +1,13 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.button.DirectionButton;
-import Problems.ElevatorDesign.button.DoorButton;
-import Problems.ElevatorDesign.button.FloorButton;
-import Problems.ElevatorDesign.enums.Direction;
-import Problems.ElevatorDesign.enums.DoorAction;
-import Problems.ElevatorDesign.enums.ElevatorStatus;
-import Problems.ElevatorDesign.panel.ExternalPanel;
-import Problems.ElevatorDesign.panel.InternalPanel;
+import Problems.ElevatorImplementation.button.DirectionButton;
+import Problems.ElevatorImplementation.button.DoorButton;
+import Problems.ElevatorImplementation.button.FloorButton;
+import Problems.ElevatorImplementation.enums.Direction;
+import Problems.ElevatorImplementation.enums.DoorAction;
+import Problems.ElevatorImplementation.enums.ElevatorStatus;
+import Problems.ElevatorImplementation.panel.ExternalPanel;
+import Problems.ElevatorImplementation.panel.InternalPanel;
 
 import java.util.ArrayList;
 import java.util.List;

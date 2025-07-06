@@ -1,4 +1,4 @@
-package Problems.ElevatorDesign.enums;
+package Problems.ElevatorImplementation.enums;
 
 public enum ElevatorStatus {
     MOVING, IDLE;

@@ -1,8 +1,8 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.enums.Direction;
-import Problems.ElevatorDesign.enums.ElevatorStatus;
-import Problems.ElevatorDesign.panel.InternalPanel;
+import Problems.ElevatorImplementation.enums.Direction;
+import Problems.ElevatorImplementation.enums.ElevatorStatus;
+import Problems.ElevatorImplementation.panel.InternalPanel;
 
 import java.util.Collections;
 import java.util.PriorityQueue;

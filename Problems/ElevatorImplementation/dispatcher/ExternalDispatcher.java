@@ -1,9 +1,9 @@
-package Problems.ElevatorDesign.dispatcher;
+package Problems.ElevatorImplementation.dispatcher;
 
-import Problems.ElevatorDesign.Elevator;
-import Problems.ElevatorDesign.ElevatorSystem;
-import Problems.ElevatorDesign.enums.Direction;
-import Problems.ElevatorDesign.enums.ElevatorStatus;
+import Problems.ElevatorImplementation.Elevator;
+import Problems.ElevatorImplementation.ElevatorSystem;
+import Problems.ElevatorImplementation.enums.Direction;
+import Problems.ElevatorImplementation.enums.ElevatorStatus;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package Problems.ElevatorDesign.button;
+package Problems.ElevatorImplementation.button;
 
-import Problems.ElevatorDesign.dispatcher.ExternalDispatcher;
-import Problems.ElevatorDesign.enums.Direction;
+import Problems.ElevatorImplementation.dispatcher.ExternalDispatcher;
+import Problems.ElevatorImplementation.enums.Direction;
 
 public class DirectionButton implements Button {
 

@@ -1,6 +1,6 @@
-package Problems.ElevatorDesign;
+package Problems.ElevatorImplementation;
 
-import Problems.ElevatorDesign.panel.ExternalPanel;
+import Problems.ElevatorImplementation.panel.ExternalPanel;
 
 public class Floor {
     private int floorNumber;
