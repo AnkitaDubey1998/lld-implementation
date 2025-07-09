@@ -5,7 +5,17 @@ public class Player {
     String playerName;
     int currentPosition;
 
-    void move() {
+    public Player(int playerId, String playerName) {
+        this.playerId = playerId;
+        this.playerName = playerName;
+        this.currentPosition = 1;
+    }
 
+    void move(int position) {
+        this.currentPosition = position;
+    }
+
+    public int getCurrentPosition() {
+        return currentPosition;
     }
 }

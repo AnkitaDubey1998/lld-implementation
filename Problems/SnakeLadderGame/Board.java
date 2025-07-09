@@ -4,12 +4,12 @@ public class Board {
     Cell[] cells;
 
     public Board(int size) {
-        this.cells = new Cell[size*size];
-        int dir = 1;
-        for(int i = 0; i < size; i++) {
-            if(dir == 1) {
-//                for()
-            }
+        this.cells = new Cell[size*size + 1];
+        this.cells[0] = null;
+        int count = 1;
+        for(int i = 1; i <= size*size; i++) {
+            this.cells[i] = new Cell(count);
         }
+        // add snakes and ladders
     }
 }
