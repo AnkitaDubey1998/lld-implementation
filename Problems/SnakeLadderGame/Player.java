@@ -18,4 +18,12 @@ public class Player {
     public int getCurrentPosition() {
         return currentPosition;
     }
+
+    public int getPlayerId() {
+        return playerId;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
 }

@@ -1,10 +1,20 @@
 package Problems.SnakeLadderGame;
 
+import java.util.Random;
+
 public class Dice {
-    int diceId;
+    private int diceId;
+    private int minValue;
+    private int maxValue;
+
+    public Dice(int diceId, int minValue, int maxValue) {
+        this.diceId = diceId;
+        this.minValue = minValue;
+        this.maxValue = maxValue;
+    }
 
     int roll() {
-        // add logic for ramdon numbers between 1 and 6
-        return 0;
+        Random random = new Random();
+        return random.nextInt(maxValue) + minValue;
     }
 }

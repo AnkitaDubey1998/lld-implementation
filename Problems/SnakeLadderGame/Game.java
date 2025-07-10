@@ -31,8 +31,8 @@ public class Game {
     }
 
     public void addDices(int n) {
-        for(int i = 0; i < n; i++) {
-            dices.add(new Dice());
+        for(int i = 1; i <= n; i++) {
+            dices.add(new Dice(i, 1, 6));
         }
     }
 
@@ -40,27 +40,43 @@ public class Game {
         board = new Board(size);
     }
 
-    Player startPlay() {
+    void playGame() {
+        System.out.println("\n\n*** GAME STARTS ***\n");
         Player winner = null;
         while(winner == null) {
-            Player player = queue.poll();
+            Player currentPlayer = queue.poll();
+            System.out.println("\nPlayer with id " + currentPlayer.getPlayerId() + " is playing");
             int steps = 0;
             for(Dice dice : dices) {
                 steps = steps + dice.roll();
             }
-            int newPosition = player.getCurrentPosition() + steps;
-            Cell dest = board.cells[newPosition];
-            if(dest.getJump() != null) {
-                newPosition = dest.getJump().getEnd();
+            if(isValidMove(currentPlayer.getCurrentPosition(), steps)) {
+                int newPosition = currentPlayer.getCurrentPosition() + steps;
+                System.out.println("Move " + steps + " steps to : " + newPosition);
+                Cell newPositionCell = board.cells[newPosition];
+                if(newPositionCell.getJump() != null) {
+                    Jump jump = newPositionCell.getJump();
+                    if(newPosition > jump.getEnd()) {
+                        System.out.println("Bitten by snake : move to " + jump.getEnd());
+                    } else {
+                        System.out.println("Climb ladder : move to " + jump.getEnd());
+                    }
+                    newPosition = newPositionCell.getJump().getEnd();
+                    if(newPosition == board.cells.length-1) {
+                        winner = currentPlayer;
+                        System.out.println("\n\nWinner is Player with id : " + winner.getPlayerId() + " name : " + winner.getPlayerName());
+                        currentPlayer.move(newPosition);
+                    } else if(newPosition < board.cells.length-1) {
+                        currentPlayer.move(newPosition);
+                    }
+                }
             }
-            if(newPosition == board.cells.length-1) {
-                winner = player;
-                player.move(newPosition);
-            } else if(newPosition < board.cells.length-1) {
-                player.move(newPosition);
-            }
-            queue.offer(player);
+            queue.offer(currentPlayer);
         }
-        return winner;
+        System.out.println("\n\n*** GAME ENDS ***\n");
+    }
+
+    private boolean isValidMove(int currentPosition, int steps) {
+        return currentPosition + steps < board.cells.length;
     }
 }
