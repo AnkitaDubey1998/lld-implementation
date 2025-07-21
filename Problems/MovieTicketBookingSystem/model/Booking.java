@@ -22,4 +22,28 @@ public class Booking {
         this.totalPrice = totalPrice;
         this.bookingStatus = BookingStatus.CREATED;
     }
+
+    public String getBookingId() {
+        return bookingId;
+    }
+
+    public Show getShow() {
+        return show;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public List<ShowSeat> getBookedSeats() {
+        return bookedSeats;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
+    }
 }
