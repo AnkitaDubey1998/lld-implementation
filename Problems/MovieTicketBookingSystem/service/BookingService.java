@@ -28,7 +28,6 @@ public class BookingService {
         }
         Booking newBooking = null;
         try {
-            seatLockProvider.lockSeats(show, user, selectedSeatList);
             double totalPrice = 0;
             for(ShowSeat selectedSeat : selectedSeatList) {
                 totalPrice += selectedSeat.getPrice();
