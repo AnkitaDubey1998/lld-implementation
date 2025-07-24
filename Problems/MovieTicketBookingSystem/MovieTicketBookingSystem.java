@@ -1,9 +1,12 @@
 package Problems.MovieTicketBookingSystem;
 
+import Problems.MovieTicketBookingSystem.enums.PaymentMode;
 import Problems.MovieTicketBookingSystem.model.*;
 import Problems.MovieTicketBookingSystem.model.seat.ShowSeat;
+import Problems.MovieTicketBookingSystem.paymentStrategy.PaymentFactory;
 import Problems.MovieTicketBookingSystem.seatLock.SeatLockProviderImpl;
 import Problems.MovieTicketBookingSystem.service.BookingService;
+import Problems.MovieTicketBookingSystem.service.PaymentService;
 import Problems.MovieTicketBookingSystem.service.ShowService;
 
 import java.util.ArrayList;
@@ -17,12 +20,14 @@ public class MovieTicketBookingSystem {
     private HashMap<Integer, Theater> theaterMap;
     private ShowService showService;
     private BookingService bookingService;
+    private PaymentService paymentService;
 
     private MovieTicketBookingSystem() {
         this.theaterMap = new HashMap<>();
         this.userMap = new HashMap<>();
         this.showService = new ShowService();
         this.bookingService = new BookingService(showService, new SeatLockProviderImpl(600));
+        this.paymentService = new PaymentService(new PaymentFactory());
     }
 
     public synchronized static MovieTicketBookingSystem getInstance() {
@@ -40,9 +45,13 @@ public class MovieTicketBookingSystem {
         for(int seatId : selectedSeatIdList) {
             selectedShowSeatList.add(showSeatMap.get(seatId));
         }
-        Booking booking = bookingService.createBooking(user, show, selectedShowSeatList);
-        // make payment
-        return booking;
+        return bookingService.createBooking(user, show, selectedShowSeatList);
+    }
+
+    public void makePayment(User user, Booking booking, PaymentMode paymentMode) {
+        if(paymentService.processPayment(user, booking.getBookingId(), booking.getTotalPrice(), paymentMode)) {
+            bookingService.confirmBooking(booking);
+        }
     }
 
     public void addUser(User user) {

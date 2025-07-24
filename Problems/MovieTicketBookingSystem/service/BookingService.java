@@ -39,4 +39,8 @@ public class BookingService {
         }
         return newBooking;
     }
+
+    public void confirmBooking(Booking booking) {
+
+    }
 }

@@ -1,13 +1,13 @@
 package Problems.MovieTicketBookingSystem;
 
-import Problems.MovieTicketBookingSystem.model.Movie;
-import Problems.MovieTicketBookingSystem.model.Show;
-import Problems.MovieTicketBookingSystem.model.Theater;
-import Problems.MovieTicketBookingSystem.model.User;
+import Problems.MovieTicketBookingSystem.enums.PaymentMode;
+import Problems.MovieTicketBookingSystem.model.*;
 import Problems.MovieTicketBookingSystem.utility.Util;
 
+import java.util.Arrays;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // https://dev-shivansh95.medium.com/low-level-design-for-bookmyshow-8db8465e560a
 
         MovieTicketBookingSystem movieTicketBookingSystem = MovieTicketBookingSystem.getInstance();
@@ -18,6 +18,10 @@ public class Main {
         movieTicketBookingSystem.addUser(user2);
 
         initializeSystem(movieTicketBookingSystem);
+
+        Booking booking1 = movieTicketBookingSystem.bookShow(user1, 1001, Arrays.asList(1, 2, 3));
+
+        movieTicketBookingSystem.makePayment(user1, booking1, PaymentMode.UPI);
 
     }
 

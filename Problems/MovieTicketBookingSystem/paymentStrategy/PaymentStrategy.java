@@ -1,5 +1,7 @@
 package Problems.MovieTicketBookingSystem.paymentStrategy;
 
+import Problems.MovieTicketBookingSystem.model.User;
+
 public interface PaymentStrategy {
-    String processPayment();
+    boolean processPayment(User user, double amount);
 }
