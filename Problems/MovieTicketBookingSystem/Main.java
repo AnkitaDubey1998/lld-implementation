@@ -19,9 +19,13 @@ public class Main {
 
         initializeSystem(movieTicketBookingSystem);
 
+        System.out.println("\nSequential booking of seats 1, 2, 3...");
         Booking booking1 = movieTicketBookingSystem.bookShow(user1, 1001, Arrays.asList(1, 2, 3));
+        System.out.println("Booking created with ID: " + booking1.getBookingId());
 
+        System.out.println("\nProcessing payment...");
         movieTicketBookingSystem.makePayment(user1, booking1, PaymentMode.UPI);
+        System.out.println("Payment processed successfully for bookingId : " + booking1.getBookingId());
 
     }
 

@@ -23,4 +23,12 @@ public class ShowSeat extends Seat {
     public SeatsStatus getSeatStatus() {
         return seatStatus;
     }
+
+    public void setSeatStatus(SeatsStatus seatStatus) {
+        this.seatStatus = seatStatus;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }

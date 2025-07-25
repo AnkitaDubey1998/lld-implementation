@@ -48,9 +48,12 @@ public class MovieTicketBookingSystem {
         return bookingService.createBooking(user, show, selectedShowSeatList);
     }
 
-    public void makePayment(User user, Booking booking, PaymentMode paymentMode) {
+    public void makePayment(User user, Booking booking, PaymentMode paymentMode) throws Exception {
         if(paymentService.processPayment(user, booking.getBookingId(), booking.getTotalPrice(), paymentMode)) {
             bookingService.confirmBooking(booking);
+        } else {
+            // process failed payment
+            // unlock seats
         }
     }
 

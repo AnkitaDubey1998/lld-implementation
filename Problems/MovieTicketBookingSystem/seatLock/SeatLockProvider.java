@@ -10,5 +10,5 @@ import java.util.List;
 public interface SeatLockProvider {
     void lockSeats(Show show, User user, List<ShowSeat> seatList) throws Exception;
     void unlockSeats(Show show, User user, List<ShowSeat> seatList);
-    void validateLock(Show show, User user, ShowSeat seat);
+    boolean validateLock(Show show, User user, ShowSeat seat);
 }

@@ -1,5 +1,7 @@
 package Problems.MovieTicketBookingSystem.service;
 
+import Problems.MovieTicketBookingSystem.enums.BookingStatus;
+import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
 import Problems.MovieTicketBookingSystem.model.Booking;
 import Problems.MovieTicketBookingSystem.model.Show;
 import Problems.MovieTicketBookingSystem.model.User;
@@ -26,6 +28,7 @@ public class BookingService {
         if(showService.isAnySeatUnavailable(show, selectedSeatList)) {
             throw new Exception("Seats already booked");
         }
+        seatLockProvider.lockSeats(show, user, selectedSeatList);
         Booking newBooking = null;
         try {
             double totalPrice = 0;
@@ -40,7 +43,24 @@ public class BookingService {
         return newBooking;
     }
 
-    public void confirmBooking(Booking booking) {
+    public void confirmBooking(Booking booking) throws Exception {
+        for(ShowSeat showSeat : booking.getBookedSeats()) {
+            if(!seatLockProvider.validateLock(booking.getShow(), booking.getUser(), showSeat)) {
+                throw new Exception("Acquired lock is either invalid or expired");
+            }
+        }
+        if(booking.getBookingStatus() != BookingStatus.CREATED) {
+            throw new Exception("Cannot confirm a booking that is not in the CREATED state.");
+        }
+        markSeatsAsBooked(booking.getBookedSeats());
+        booking.setBookingStatus(BookingStatus.CONFIRMED);
+    }
 
+    private void markSeatsAsBooked(List<ShowSeat> showSeatList) {
+        synchronized (showSeatList) {
+            for(ShowSeat showSeat : showSeatList) {
+                showSeat.setSeatStatus(SeatsStatus.BOOKED);
+            }
+        }
     }
 }

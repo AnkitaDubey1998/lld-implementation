@@ -46,4 +46,8 @@ public class Booking {
     public BookingStatus getBookingStatus() {
         return bookingStatus;
     }
+
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
 }

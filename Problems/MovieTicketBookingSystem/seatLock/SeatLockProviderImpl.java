@@ -1,5 +1,6 @@
 package Problems.MovieTicketBookingSystem.seatLock;
 
+import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
 import Problems.MovieTicketBookingSystem.model.Show;
 import Problems.MovieTicketBookingSystem.model.User;
 import Problems.MovieTicketBookingSystem.model.seat.SeatLock;
@@ -21,7 +22,7 @@ public class SeatLockProviderImpl implements SeatLockProvider {
 
     @Override
     public void lockSeats(Show show, User user, List<ShowSeat> requestedSeatList) throws Exception {
-        Map<ShowSeat, SeatLock> showLockedSeatsMap = lockedSeatsMap.get(show);
+        Map<ShowSeat, SeatLock> showLockedSeatsMap = lockedSeatsMap.computeIfAbsent(show, s -> new ConcurrentHashMap<>());
         synchronized (showLockedSeatsMap) {
             // check if any of the requested seats is already locked and the lock is still valid
             for(ShowSeat seat : requestedSeatList) {
@@ -34,6 +35,7 @@ public class SeatLockProviderImpl implements SeatLockProvider {
             }
             // all seats are available, lock them together
             for(ShowSeat seat : requestedSeatList) {
+                seat.setSeatStatus(SeatsStatus.LOCKED);
                 SeatLock seatLock = new SeatLock(seat, show, user, new Date(), lockTimeout);
                 showLockedSeatsMap.put(seat, seatLock);
             }
@@ -42,11 +44,25 @@ public class SeatLockProviderImpl implements SeatLockProvider {
 
     @Override
     public void unlockSeats(Show show, User user, List<ShowSeat> seatList) {
-
+        Map<ShowSeat, SeatLock> showLockedSeatsMap = lockedSeatsMap.get(show);
+        synchronized (showLockedSeatsMap) {
+            for(ShowSeat showSeat : seatList) {
+                showSeat.setSeatStatus(SeatsStatus.AVAILABLE);
+                SeatLock seatLock = showLockedSeatsMap.get(showSeat);
+                if(seatLock != null && seatLock.getLockedByUser().equals(user)) {
+                    showLockedSeatsMap.remove(showSeat);
+                }
+            }
+        }
     }
 
     @Override
-    public void validateLock(Show show, User user, ShowSeat seat) {
-
+    public boolean validateLock(Show show, User user, ShowSeat seat) {
+        Map<ShowSeat, SeatLock> showLockedSeatsMap = lockedSeatsMap.get(show);
+        if(showLockedSeatsMap == null) return false;
+        synchronized (showLockedSeatsMap) {
+            SeatLock seatLock = showLockedSeatsMap.get(seat);
+            return seatLock != null && !seatLock.isLockExpired() && seatLock.getLockedByUser().equals(user);
+        }
     }
 }
