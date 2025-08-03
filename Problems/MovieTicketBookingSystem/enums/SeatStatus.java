@@ -1,5 +1,5 @@
 package Problems.MovieTicketBookingSystem.enums;
 
-public enum SeatsStatus {
+public enum SeatStatus {
     AVAILABLE, LOCKED, BOOKED;
 }

@@ -1,30 +1,30 @@
 package Problems.MovieTicketBookingSystem.model.seat;
 
-import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
+import Problems.MovieTicketBookingSystem.enums.SeatStatus;
 
 public class ShowSeat extends Seat {
     double price;
-    SeatsStatus seatStatus;
+    SeatStatus seatStatus;
 
     public ShowSeat(Seat seat, double price) {
         super(seat.getSeatId(), seat.getSeatNumber(), seat.getRow(), seat.getSeatType());
         this.price = price;
-        this.seatStatus = SeatsStatus.AVAILABLE;
+        this.seatStatus = SeatStatus.AVAILABLE;
     }
 
     public boolean isBooked() {
-        return this.seatStatus == SeatsStatus.BOOKED;
+        return this.seatStatus == SeatStatus.BOOKED;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public SeatsStatus getSeatStatus() {
+    public SeatStatus getSeatStatus() {
         return seatStatus;
     }
 
-    public void setSeatStatus(SeatsStatus seatStatus) {
+    public void setSeatStatus(SeatStatus seatStatus) {
         this.seatStatus = seatStatus;
     }
 

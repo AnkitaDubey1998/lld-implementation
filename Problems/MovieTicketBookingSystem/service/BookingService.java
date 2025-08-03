@@ -1,7 +1,7 @@
 package Problems.MovieTicketBookingSystem.service;
 
 import Problems.MovieTicketBookingSystem.enums.BookingStatus;
-import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
+import Problems.MovieTicketBookingSystem.enums.SeatStatus;
 import Problems.MovieTicketBookingSystem.model.Booking;
 import Problems.MovieTicketBookingSystem.model.Show;
 import Problems.MovieTicketBookingSystem.model.User;
@@ -59,8 +59,13 @@ public class BookingService {
     private void markSeatsAsBooked(List<ShowSeat> showSeatList) {
         synchronized (showSeatList) {
             for(ShowSeat showSeat : showSeatList) {
-                showSeat.setSeatStatus(SeatsStatus.BOOKED);
+                showSeat.setSeatStatus(SeatStatus.BOOKED);
             }
         }
+    }
+
+    public void pendingBooking(Booking booking) {
+        seatLockProvider.unlockSeats(booking.getShow(), booking.getUser(), booking.getBookedSeats());
+        booking.setBookingStatus(BookingStatus.PENDING);
     }
 }

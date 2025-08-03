@@ -1,6 +1,6 @@
 package Problems.MovieTicketBookingSystem.seatLock;
 
-import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
+import Problems.MovieTicketBookingSystem.enums.SeatStatus;
 import Problems.MovieTicketBookingSystem.model.Show;
 import Problems.MovieTicketBookingSystem.model.User;
 import Problems.MovieTicketBookingSystem.model.seat.SeatLock;
@@ -35,7 +35,7 @@ public class SeatLockProviderImpl implements SeatLockProvider {
             }
             // all seats are available, lock them together
             for(ShowSeat seat : requestedSeatList) {
-                seat.setSeatStatus(SeatsStatus.LOCKED);
+                seat.setSeatStatus(SeatStatus.LOCKED);
                 SeatLock seatLock = new SeatLock(seat, show, user, new Date(), lockTimeout);
                 showLockedSeatsMap.put(seat, seatLock);
             }
@@ -47,7 +47,7 @@ public class SeatLockProviderImpl implements SeatLockProvider {
         Map<ShowSeat, SeatLock> showLockedSeatsMap = lockedSeatsMap.get(show);
         synchronized (showLockedSeatsMap) {
             for(ShowSeat showSeat : seatList) {
-                showSeat.setSeatStatus(SeatsStatus.AVAILABLE);
+                showSeat.setSeatStatus(SeatStatus.AVAILABLE);
                 SeatLock seatLock = showLockedSeatsMap.get(showSeat);
                 if(seatLock != null && seatLock.getLockedByUser().equals(user)) {
                     showLockedSeatsMap.remove(showSeat);

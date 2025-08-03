@@ -15,6 +15,7 @@ public class PaymentService {
         this.paymentFactory = paymentFactory;
     }
 
+    // default returning TRUE, logic can be added for processing payment
     public boolean processPayment(User user, String bookingId, double amount, PaymentMode paymentMode) {
         setPaymentStrategy(paymentFactory.getPaymentStrategy(paymentMode));
         paymentStrategy.processPayment(user, amount);

@@ -1,6 +1,6 @@
 package Problems.MovieTicketBookingSystem.service;
 
-import Problems.MovieTicketBookingSystem.enums.SeatsStatus;
+import Problems.MovieTicketBookingSystem.enums.SeatStatus;
 import Problems.MovieTicketBookingSystem.model.Show;
 import Problems.MovieTicketBookingSystem.model.seat.ShowSeat;
 
@@ -29,7 +29,7 @@ public class ShowService {
         HashMap<Integer, ShowSeat> showSeatMap = show.getShowSeatMap();
         for(ShowSeat selectedSeat : selectedSeatList) {
             ShowSeat showSeat = showSeatMap.get(selectedSeat.getSeatId());
-            if(showSeat == null || showSeat.getSeatStatus() != SeatsStatus.AVAILABLE) {
+            if(showSeat == null || showSeat.getSeatStatus() != SeatStatus.AVAILABLE) {
                 return true;
             }
         }

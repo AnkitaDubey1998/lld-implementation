@@ -52,8 +52,7 @@ public class MovieTicketBookingSystem {
         if(paymentService.processPayment(user, booking.getBookingId(), booking.getTotalPrice(), paymentMode)) {
             bookingService.confirmBooking(booking);
         } else {
-            // process failed payment
-            // unlock seats
+            bookingService.pendingBooking(booking);
         }
     }
 
