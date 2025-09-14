@@ -8,7 +8,7 @@ public class Board {
         this.cells[0] = null;
         int count = 1;
         for(int i = 1; i <= size*size; i++) {
-            this.cells[i] = new Cell(count);
+            this.cells[i] = new Cell(i);
         }
         // add snake
         addJump(27, 5);

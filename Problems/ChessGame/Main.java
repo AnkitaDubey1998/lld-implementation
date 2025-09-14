@@ -10,6 +10,9 @@ public class Main {
     * Pawn (Soldier) : Moves forward one square, but captures diagonally. Pawns can move two squares forward on their first move.
     */
     public static void main(String[] args) {
+        Game game = Game.getInstance();
 
+        game.createPlayer("Krishna", "Ankita");
+        game.startGame();
     }
 }

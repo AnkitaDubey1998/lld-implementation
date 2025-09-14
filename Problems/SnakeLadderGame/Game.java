@@ -45,14 +45,17 @@ public class Game {
         Player winner = null;
         while(winner == null) {
             Player currentPlayer = queue.poll();
-            System.out.println("\nPlayer with id " + currentPlayer.getPlayerId() + " is playing");
+            System.out.println("\n" + currentPlayer.getPlayerName() + " is playing");
             int steps = 0;
             for(Dice dice : dices) {
                 steps = steps + dice.roll();
             }
             if(isValidMove(currentPlayer.getCurrentPosition(), steps)) {
                 int newPosition = currentPlayer.getCurrentPosition() + steps;
-                System.out.println("Move " + steps + " steps to : " + newPosition);
+//                currentPlayer.move(newPosition);
+                System.out.println("Move " + steps
+
+                        + " steps to : " + newPosition);
                 Cell newPositionCell = board.cells[newPosition];
                 if(newPositionCell.getJump() != null) {
                     Jump jump = newPositionCell.getJump();
