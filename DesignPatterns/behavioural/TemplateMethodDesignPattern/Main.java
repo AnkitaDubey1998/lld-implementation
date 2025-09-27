@@ -7,12 +7,12 @@ public class Main {
     public static void main(String[] args) {
         ReportData reportData = new ReportData();
 
-        AbstractReportExporter csvExporter = new CsvReportExporter();
+        ReportExporter csvExporter = new CsvReportExporter();
         csvExporter.exportReport(reportData, "sales_report_csv");
 
         System.out.println();
 
-        AbstractReportExporter pdfExporter = new PdfReportExporter();
+        ReportExporter pdfExporter = new PdfReportExporter();
         pdfExporter.exportReport(reportData, "financial_summary_pdf");
     }
 }

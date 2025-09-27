@@ -1,11 +1,11 @@
 package DesignPatterns.behavioural.TemplateMethodDesignPattern.ConcreteReportExporter;
 
-import DesignPatterns.behavioural.TemplateMethodDesignPattern.AbstractReportExporter;
+import DesignPatterns.behavioural.TemplateMethodDesignPattern.ReportExporter;
 import DesignPatterns.behavioural.TemplateMethodDesignPattern.ReportData;
 
 import java.util.Map;
 
-public class ExcelReportExporter extends AbstractReportExporter {
+public class ExcelReportExporter extends ReportExporter {
     //prepareData() not overridden - default will be used
     //openFile() not overridden - default will be used
 

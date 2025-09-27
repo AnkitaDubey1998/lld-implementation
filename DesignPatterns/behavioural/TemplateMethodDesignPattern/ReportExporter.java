@@ -1,6 +1,6 @@
 package DesignPatterns.behavioural.TemplateMethodDesignPattern;
 
-public abstract class AbstractReportExporter {
+public abstract class ReportExporter {
 
     // template method
     public final void exportReport(ReportData reportData, String filePath) {
