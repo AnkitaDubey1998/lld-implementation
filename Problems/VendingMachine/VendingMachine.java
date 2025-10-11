@@ -1,13 +1,16 @@
 package Problems.VendingMachine;
 
+import Problems.VendingMachine.enums.Coin;
+import Problems.VendingMachine.enums.PaymentMode;
 import Problems.VendingMachine.machineState.IdleStateVending;
 import Problems.VendingMachine.machineState.VendingMachineState;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class VendingMachine {
     private static volatile VendingMachine instance;
-    private HashMap<String, Item> inventory;
+    private final HashMap<String, Item> inventory;
     private VendingMachineState currentState;
     private Item selectedItem;
 
@@ -35,17 +38,29 @@ public class VendingMachine {
         inventory.put(item.getItemCode(), item);
     }
 
-    public void selectItem(String itemCode) {
-        currentState.selectItem(this, itemCode);
-        setSelectedItem(itemCode);
-    }
-
     private void setSelectedItem(String selectedItem) {
         this.selectedItem = inventory.get(selectedItem);
     }
 
     public Item getSelectedItem() {
         return this.selectedItem;
+    }
+
+    public void selectItem(String itemCode) {
+        currentState.selectItem(this, itemCode);
+        setSelectedItem(itemCode);
+    }
+
+    public void makePayment(PaymentMode paymentMode, List<Coin> coinList) {
+        currentState.insertMoney(this, paymentMode, coinList);
+    }
+
+    public void processPayment() {
+        currentState.processPayment(this);
+    }
+
+    public void dispenseItem() {
+        currentState.dispenseItem(this);
     }
 
     public void reduceQuantity(String itemCode) {

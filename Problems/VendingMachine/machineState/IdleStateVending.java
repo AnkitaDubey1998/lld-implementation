@@ -20,7 +20,7 @@ public class IdleStateVending implements VendingMachineState {
 
     @Override
     public void processPayment(VendingMachine vendingMachine) {
-
+        System.out.println("No item selected. Select item first");
     }
 
     @Override

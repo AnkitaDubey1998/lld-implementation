@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static Problems.VendingMachine.enums.PaymentMode.CASH;
+import static Problems.VendingMachine.enums.PaymentMode.UPI;
 
 public class ItemSelectedState implements VendingMachineState {
 
@@ -31,8 +32,10 @@ public class ItemSelectedState implements VendingMachineState {
                 System.out.println("Insufficient coins inserted. Insert more coin");
                 return;
             }
+        } else if(UPI.equals(paymentMode)) {
+            System.out.println("Validations for UPI mode");
+            // handle validations for UPI mode (if any)
         }
-        // handle validations for UPI mode (if any)
         vendingMachine.setState(new HasMoneyState(paymentStrategy));
     }
 
