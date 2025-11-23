@@ -27,6 +27,22 @@ public class Expense {
         this.splitValues = splitStrategy.calculateSplit(amount, payer, builder.participants, builder.splitDetails);
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public User getPayer() {
+        return payer;
+    }
+
+    public Map<User, Double> getSplitValues() {
+        return splitValues;
+    }
+
     public static class ExpenseBuilder {
         private String id;
         private String description;
